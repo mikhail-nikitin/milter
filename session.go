@@ -13,21 +13,40 @@ import (
 
 const (
 	// negotiation actions
-	OptAddHeader    = 0x01
-	OptChangeBody   = 0x02
-	OptAddRcpt      = 0x04
-	OptRemoveRcpt   = 0x08
-	OptChangeHeader = 0x10
-	OptQuarantine   = 0x20
+	OptAddHeader = 1 << iota
+	OptChangeBody
+	OptAddRcpt
+	OptRemoveRcpt
+	OptChangeHeader
+	OptQuarantine
+	OptChangeFrom
+	OptAddRcptWithArgs
+	OptSetMacroList
+)
 
+const (
 	// undesired protocol content
-	OptNoConnect  = 0x01
-	OptNoHelo     = 0x02
-	OptNoMailFrom = 0x04
-	OptNoRcptTo   = 0x08
-	OptNoBody     = 0x10
-	OptNoHeaders  = 0x20
-	OptNoEOH      = 0x40
+	OptNoConnect = 1 << iota
+	OptNoHelo
+	OptNoMailFrom
+	OptNoRcptTo
+	OptNoBody
+	OptNoHeaders
+	OptNoEOH
+	OptNoReplyToHeaders
+	OptNoUnknown
+	OptNoData
+	OptSkipEventNextTime
+	OptWithRejectedRcpt
+	OptNoReplyToConnect
+	OptNoReplyToHelo
+	OptNoReplyToMail
+	OptNoReplyToRcpt
+	OptNoReplyToData
+	OptNoReplyToUnkn
+	OptNoReplyToEOH
+	OptNoReplyToBody
+	OptHeaderValuesWithLeadingSpace
 )
 
 /* MilterSession is keeps session state during MTA communication */
